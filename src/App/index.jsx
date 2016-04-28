@@ -1,5 +1,6 @@
 import React from 'react';
 import AudioGrid from '../AudioGrid';
+import audio from 'simple-audio';
 
 // PSA: This looks much more workable if you remove all the comments.
 
@@ -14,6 +15,8 @@ class App extends React.Component {
     super(props);
   }
 
+  //OK Leo here I am fucking around let's try not to break everything
+
   // Some people try to tell you that state is bad, and to use things like flux or redux instead
   // You COULD do that, but when it comes down to it, we're casual and that's way overkill.
   state = {numOfClicks: 0};
@@ -23,7 +26,10 @@ class App extends React.Component {
   // using the () => {} syntax, the 'this' variable isn't set to the component itself. Javascript!
   // This isn't the case for the react functions like render, because they do the binding for you!
   _handleClick = () => {
+    // Leo here again
+    audio.playSound('SP');
     this.setState({numOfClicks: this.state.numOfClicks + 1 })
+
   };
 
   // React calls this every time (props) or (state) are updated.
